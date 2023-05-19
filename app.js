@@ -8,8 +8,7 @@ const { indexController } = require("./controllers/indexController");
 
 require("dotenv").config();
 
-const DB_USERNAME=process.env.DB_USERNAME;
-const DB_PASSWORD=process.env.DB_PASSWORD;
+
 
 
 const {
@@ -35,7 +34,8 @@ app.use(express.urlencoded({ extended: true }));
 const connection = mongoose.connect(
   // "mongodb://localhost:27017/banking-system",
 
-  `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@cluster0.ia2jk.mongodb.net/banking-system?retryWrites=true&w=majority`
+  //`mongodb+srv://ravindradto9:tKoqGbP9h7wkUxDr@cluster0.ia2jk.mongodb.net/banking-system?retryWrites=true&w=majority`
+  `mongodb+srv://ravindradto9:tKoqGbP9h7wkUxDr@cluster0.jhbnbpo.mongodb.net/`
   ,
   {
     useNewUrlParser: true,

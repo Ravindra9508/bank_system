@@ -31,29 +31,29 @@ transactions = customer.transactions%>
         </thead>
 
         <tbody class="text-center fs-6">
-          <% transactions.slice().reverse().forEach((transaction,index)=>{ const
-          tempDate=(transaction.updatedAt).toString(); const
+          <% transactions.slice().reverse().forEach((transactions,index)=>{ const tempDate = transactions.updatedAt ? transactions.updatedAt.toString() : '';
+          const
           updatedAt=tempDate.substring(0,tempDate.indexOf('GMT')); %>
 
           <tr>
             <td class="fw-bold"><%= index+1%></td>
             <td><%=updatedAt%></td>
 
-            <td><%=transaction.transactionDetails.transferredFrom%></td>
-            <td><%=transaction.transactionDetails.transferredTo%></td>
-            <% if(transaction.transactionType==="debit"){ %>
+            <td><%=transactions.transactionDetails.transferredFrom%></td>
+            <td><%=transactions.transactionDetails.transferredTo%></td>
+            <% if(transactions.transactionType==="debit"){ %>
             <td class="text-danger fw-bold">
               <span><i class="fas fa-rupee-sign"></i></span>
-              <%=(transaction.transactionDetails.amount).toLocaleString('en-IN')%>
+              <%=(transactions.transactionDetails.amount).toLocaleString('en-IN')%>
             </td>
 
             <%}else{%>
 
             <td class="fw-bold">-</td>
-            <%}%> <% if(transaction.transactionType==="credit"){ %>
+            <%}%> <% if(transactions.transactionType==="credit"){ %>
             <td class="text-success fw-bold">
               <span><i class="fas fa-rupee-sign"></i></span>
-              <%=(transaction.transactionDetails.amount).toLocaleString('en-IN')%>
+              <%=(transactions.transactionDetails.amount).toLocaleString('en-IN')%>
             </td>
 
             <%}else{%>
@@ -62,7 +62,7 @@ transactions = customer.transactions%>
             <%}%>
             <td class="fw-bold bg-warning bg-gradient">
               <span><i class="fas fa-rupee-sign"></i></span>
-              <%=(transaction.transactionDetails.balance).toLocaleString('en-IN')%>
+              <%=(transactions.transactionDetails.balance).toLocaleString('en-IN')%>
             </td>
           </tr>
 

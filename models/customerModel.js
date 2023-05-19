@@ -5,6 +5,7 @@ const transactionSchema = new Schema(
   {
     transactionType: {
       type: String,
+      
     },
 
     transactionDetails: {
